@@ -1,0 +1,11 @@
+<script>
+export default {
+  nome: "AppMain",
+};
+</script>
+
+<template>
+  <h2>Main</h2>
+</template>
+
+<style scoped lang="scss"></style>
