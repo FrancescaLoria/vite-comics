@@ -1,6 +1,53 @@
 <script>
 export default {
   nome: "AppHeader",
+  data() {
+    const links = [
+      {
+        name: "Charachters",
+        url: "#",
+      },
+      {
+        name: "Comics",
+        url: "#",
+      },
+      {
+        name: "Movies",
+        url: "#",
+      },
+      {
+        name: "Tv",
+        url: "#",
+      },
+      {
+        name: "Games",
+        url: "#",
+      },
+      {
+        name: "Collectibles",
+        url: "#",
+      },
+      {
+        name: "Videos",
+        url: "#",
+      },
+      {
+        name: "Fans",
+        url: "#",
+      },
+      {
+        name: "News",
+        url: "#",
+      },
+      {
+        name: "Shop",
+        url: "#",
+      },
+    ];
+    return {
+      links,
+    };
+  },
 };
 </script>
 
@@ -9,12 +56,9 @@ export default {
     <div class="container">
       <img src="../../assets/img/dc-logo.png" alt="" />
       <ul>
-        <li>characters</li>
-        <li>characters</li>
-        <li>characters</li>
-        <li>characters</li>
-        <li>characters</li>
-        <li>characters</li>
+        <li v-for="(link, index) in links" :key="index">
+          <a :href="link.url">{{ link.name }}</a>
+        </li>
       </ul>
     </div>
   </header>
@@ -38,6 +82,11 @@ header {
   ul {
     display: flex;
     gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    li > a {
+      text-transform: uppercase;
+    }
   }
 }
 </style>

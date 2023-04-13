@@ -1,6 +1,52 @@
 <script>
 export default {
   name: "FooterTop",
+  data() {
+    const links = [
+      [
+        [
+          {
+            name: "dc comics",
+            link: "#",
+          },
+          {
+            name: "charachters",
+            link: "#",
+          },
+          {
+            name: "comics",
+            link: "#",
+          },
+          {
+            name: "movies",
+            link: "#",
+          },
+          {
+            name: "tv",
+            link: "#",
+          },
+          {
+            name: "games",
+            link: "#",
+          },
+          {
+            name: "videos",
+            link: "#",
+          },
+          {
+            name: "news",
+            link: "#",
+          },
+        ],
+        [],
+      ],
+      [[]],
+      [[]],
+    ];
+    return {
+      links,
+    };
+  },
 };
 </script>
 
@@ -8,81 +54,10 @@ export default {
   <div class="footer-top">
     <div class="container">
       <div class="links">
-        <div class="first-column">
-          <ul>
-            <li>Dc comics</li>
-            <li>
-              <a href="#">Charachters</a>
-            </li>
-            <li>
-              <a href="#">Charachters</a>
-            </li>
-            <li>
-              <a href="#">Charachters</a>
-            </li>
-            <li>
-              <a href="#">Charachters</a>
-            </li>
-            <li>
-              <a href="#">Charachters</a>
-            </li>
-            <li>
-              <a href="#">Charachters</a>
-            </li>
-            <li>
-              <a href="#">Charachters</a>
-            </li>
-          </ul>
-
-          <ul>
-            <li>Dc comics</li>
-            <li>
-              <a href="#">Charachters</a>
-            </li>
-            <li>
-              <a href="#">Charachters</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="second-column">
-          <ul>
-            <li>Dc comics</li>
-            <li>
-              <a href="#">Charachters</a>
-            </li>
-            <li>
-              <a href="#">Charachters</a>
-            </li>
-            <li>
-              <a href="#">Charachters</a>
-            </li>
-            <li>
-              <a href="#">Charachters</a>
-            </li>
-            <li>
-              <a href="#">Charachters</a>
-            </li>
-            <li>
-              <a href="#">Charachters</a>
-            </li>
-            <li>
-              <a href="#">Charachters</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="third-column">
-          <ul>
-            <li>Dc comics</li>
-            <li>
-              <a href="#">Charachters</a>
-            </li>
-            <li>
-              <a href="#">Charachters</a>
-            </li>
-            <li>
-              <a href="#">Charachters</a>
+        <div v-for="(row, index1) in links" :key="index1">
+          <ul v-for="(list, index2) in row" :key="index2">
+            <li v-for="(finalLinks, index3) in list" :key="index3">
+              <a :href="finalLinks.url">{{ finalLinks.name }}</a>
             </li>
           </ul>
         </div>

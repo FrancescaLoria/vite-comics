@@ -1,6 +1,44 @@
 <script>
 export default {
   name: "MainBottom",
+  data() {
+    const links = [
+      {
+        img: "buy-comics-digital-comics.png",
+        url: "#",
+        text: "Digital comics",
+      },
+      {
+        img: "buy-comics-merchandise.png",
+        url: "#",
+        text: "dc merchandise",
+      },
+      {
+        img: "buy-comics-subscriptions.png",
+        url: "#",
+        text: "Subscription",
+      },
+      {
+        img: "buy-comics-shop-locator.png",
+        url: "#",
+        text: "Comic shop locator",
+        resize: true,
+      },
+      {
+        img: "buy-dc-power-visa.svg",
+        url: "#",
+        text: "DC power visa",
+      },
+    ];
+    return {
+      links,
+    };
+  },
+  methods: {
+    getImageUrl(img) {
+      return new URL(`../../assets/img/${img}`, import.meta.url).href;
+    },
+  },
 };
 </script>
 
@@ -8,25 +46,13 @@ export default {
   <div class="main-bottom">
     <div class="cont-info">
       <ul>
-        <li>
-          <img src="../../assets/img/buy-comics-digital-comics.png" alt="" />
-          <a href="">DIGITAL COMICS</a>
-        </li>
-        <li>
-          <img src="../../assets/img/buy-comics-digital-comics.png" alt="" />
-          <a href="">DIGITAL COMICS</a>
-        </li>
-        <li>
-          <img src="../../assets/img/buy-comics-digital-comics.png" alt="" />
-          <a href="">DIGITAL COMICS</a>
-        </li>
-        <li>
-          <img src="../../assets/img/buy-comics-digital-comics.png" alt="" />
-          <a href="">DIGITAL COMICS</a>
-        </li>
-        <li>
-          <img src="../../assets/img/buy-comics-digital-comics.png" alt="" />
-          <a href="">DIGITAL COMICS</a>
+        <li v-for="(link, index) in links" :key="index">
+          <img
+            :src="getImageUrl(link.img)"
+            :alt="link.url"
+            :class="link.resize ? 'resize' : ''"
+          />
+          <a :href="link.url">{{ link.text }}</a>
         </li>
       </ul>
     </div>
@@ -48,6 +74,7 @@ export default {
     ul {
       display: flex;
       justify-content: space-between;
+      text-transform: uppercase;
       li {
         display: flex;
         align-items: center;
@@ -56,6 +83,9 @@ export default {
         img {
           width: 35px;
           object-fit: cover;
+          &.resize {
+            transform: scale(0.8);
+          }
         }
       }
     }
