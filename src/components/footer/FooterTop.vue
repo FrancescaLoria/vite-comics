@@ -2,49 +2,135 @@
 export default {
   name: "FooterTop",
   data() {
-    const links = [
-      [
-        [
-          {
-            name: "dc comics",
-            link: "#",
-          },
-          {
-            name: "charachters",
-            link: "#",
-          },
-          {
-            name: "comics",
-            link: "#",
-          },
-          {
-            name: "movies",
-            link: "#",
-          },
-          {
-            name: "tv",
-            link: "#",
-          },
-          {
-            name: "games",
-            link: "#",
-          },
-          {
-            name: "videos",
-            link: "#",
-          },
-          {
-            name: "news",
-            link: "#",
-          },
-        ],
-        [],
-      ],
-      [[]],
-      [[]],
+    const links_1 = [
+      {
+        name: "DC COMICS",
+        link: "#",
+      },
+      {
+        name: "Charachters",
+        link: "#",
+      },
+      {
+        name: "Comics",
+        link: "#",
+      },
+      {
+        name: "Movies",
+        link: "#",
+      },
+      {
+        name: "Tv",
+        link: "#",
+      },
+      {
+        name: "Games",
+        link: "#",
+      },
+      {
+        name: "Videos",
+        link: "#",
+      },
+      {
+        name: "News",
+        link: "#",
+      },
+    ];
+    const links_2 = [
+      {
+        name: "SHOP",
+        link: "#",
+      },
+      {
+        name: "Shop DC",
+        link: "#",
+      },
+      {
+        name: "Shop DC Collectibles",
+        link: "#",
+      },
+    ];
+    const links_3 = [
+      {
+        name: "DC",
+        link: "#",
+      },
+      {
+        name: "Terms Of Use",
+        link: "#",
+      },
+      {
+        name: "Privacy policy (New)",
+        link: "#",
+      },
+      {
+        name: "Ad Choices",
+        link: "#",
+      },
+      {
+        name: "Adversting",
+        link: "#",
+      },
+      {
+        name: "Jobs",
+        link: "#",
+      },
+      {
+        name: "Subscriptions",
+        link: "#",
+      },
+      {
+        name: "Talent Workshop",
+        link: "#",
+      },
+      {
+        name: "CPSC Certificates",
+        link: "#",
+      },
+      {
+        name: "Ratings",
+        link: "#",
+      },
+      {
+        name: "Shop Help",
+        link: "#",
+      },
+      {
+        name: "Contact Us",
+        link: "#",
+      },
+    ];
+    const links_4 = [
+      {
+        name: "SITES",
+        link: "#",
+      },
+      {
+        name: "DC",
+        link: "#",
+      },
+      {
+        name: "MAD Magazine",
+        link: "#",
+      },
+      {
+        name: "DC Kids",
+        link: "#",
+      },
+      {
+        name: "DC Universe",
+        link: "#",
+      },
+      {
+        name: "DC Power Visa",
+        link: "#",
+      },
     ];
     return {
-      links,
+      links_1,
+      links_2,
+      links_3,
+      links_4,
     };
   },
 };
@@ -54,10 +140,33 @@ export default {
   <div class="footer-top">
     <div class="container">
       <div class="links">
-        <div v-for="(row, index1) in links" :key="index1">
-          <ul v-for="(list, index2) in row" :key="index2">
-            <li v-for="(finalLinks, index3) in list" :key="index3">
-              <a :href="finalLinks.url">{{ finalLinks.name }}</a>
+        <div class="first-columns">
+          <ul>
+            <li v-for="(link, index) in links_1" :key="index">
+              <span v-if="index === 0">{{ link.name }}</span>
+              <a v-else :href="link.link">{{ link.name }}</a>
+            </li>
+          </ul>
+          <ul>
+            <li v-for="(link, index) in links_2" :key="index">
+              <span v-if="index === 0">{{ link.name }}</span>
+              <a v-else :href="link.link">{{ link.name }}</a>
+            </li>
+          </ul>
+        </div>
+        <div class="second-column">
+          <ul>
+            <li v-for="(link, index) in links_3" :key="index">
+              <span v-if="index === 0">{{ link.name }}</span>
+              <a v-else :href="link.link">{{ link.name }}</a>
+            </li>
+          </ul>
+        </div>
+        <div class="third-column">
+          <ul>
+            <li v-for="(link, index) in links_4" :key="index">
+              <span v-if="index === 0">{{ link.name }}</span>
+              <a v-else :href="link.link">{{ link.name }}</a>
             </li>
           </ul>
         </div>
@@ -91,10 +200,10 @@ export default {
           font-size: 18px;
           font-weight: 600;
           color: white;
-          text-transform: uppercase;
         }
 
         a {
+          font-size: 12px;
           color: #959595;
         }
       }
