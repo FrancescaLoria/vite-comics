@@ -6,18 +6,14 @@ export default {
 
 <template>
   <div class="main-top">
-    <div class="container">
-      <h1>--Content goes here--</h1>
-    </div>
+    <div class="jumbotron"></div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.main-top {
-  height: 150px;
-  background-color: black;
-  color: white;
-  display: flex;
-  align-items: center;
+.jumbotron {
+  height: 320px;
+  background-image: url(../../assets/img/jumbotron.jpg);
+  background-size: 100%;
 }
 </style>
